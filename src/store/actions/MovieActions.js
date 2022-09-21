@@ -1,5 +1,5 @@
 import { GetMovie, getPopularMovies, GetSimilarMovies } from "../../services/MovieServices";
-import { GET_POPULAR_MOVIES ,CHANGE_POPULAR_MOVIES_PAGE, MOVIES_LOADING_TYPE } from "../types";
+import { GET_POPULAR_MOVIES ,CHANGE_PAGE, MOVIES_LOADING_TYPE } from "../types";
 
 export const loadPopularMovies = (page) =>{
     return async (dispatch) =>{
@@ -16,11 +16,11 @@ export const loadPopularMovies = (page) =>{
     }
 } 
 
-export const changePopularMoviesPage = (flag) =>{
+export const changePage = (flag) =>{
     return (dispatch) =>{
         try{
             dispatch({
-                type:CHANGE_POPULAR_MOVIES_PAGE,
+                type:CHANGE_PAGE,
                 payload:flag
             })
         }catch (error){

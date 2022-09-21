@@ -1,9 +1,10 @@
-import { MOVIES_LOADING_TYPE,GET_POPULAR_MOVIES,CHANGE_POPULAR_MOVIES_PAGE } from "../types";
+import { MOVIES_LOADING_TYPE,GET_POPULAR_MOVIES,CHANGE_PAGE } from "../types";
 
 const initialState = {
+    currentMovies:[],
     popularMovies: [],
     searchedMovieId: null,
-    popularMoviesPage: 1
+    page: 1
 }
 
 const MovieReducer = (state = initialState, action) => {
@@ -12,10 +13,11 @@ const MovieReducer = (state = initialState, action) => {
             return { ...state, moviesLoading: action.payload }
         case GET_POPULAR_MOVIES:
             return { ...state, popularMovies: action.payload } 
-        case CHANGE_POPULAR_MOVIES_PAGE:
-            let newPopularMoviesPage = state.popularMoviesPage
-            action.payload?newPopularMoviesPage++:newPopularMoviesPage--
-            return { ...state, popularMoviesPage : newPopularMoviesPage}
+        case CHANGE_PAGE:
+            console.log('state', state)
+            let newPage = state.page
+            action.payload?newPage++:newPage--
+            return { ...state, page : newPage}
         default: 
         return { ...state }
     }
