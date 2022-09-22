@@ -4,6 +4,7 @@ import Home from './components/Home'
 import Nav from './components/Nav'
 import Genres from './components/Genres'
 import Genre from './components/Genre'
+import MovieDetails from './components/MovieDetails'
 
 function App(props) {
   return (
@@ -11,8 +12,9 @@ function App(props) {
       <Nav />
       <Routes>
         <Route exact path='/' element = {<Home />} />
-        <Route path = '/explore' element = {<Genres/>} />
-        <Route path = '/genre/:id' element = {<Genre/>} />
+        <Route path = '/explore' element = {<Genres />} />
+        <Route path = '/genre/:id' element = {<Genre />} />
+        <Route path = '/movie/:id' element = {<MovieDetails />} />
       </ Routes>
     </div>
   );

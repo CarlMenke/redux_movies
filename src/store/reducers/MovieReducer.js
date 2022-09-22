@@ -1,11 +1,11 @@
-import {MOVIES_LOADING_TYPE,GET_POPULAR_MOVIES,CHANGE_PAGE,GET_GENRES,GET_MOVIES_BY_GENRE, RESET_PAGE } from "../types";
+import {GET_MOVIE_BY_ID,MOVIES_LOADING_TYPE,GET_POPULAR_MOVIES,CHANGE_PAGE,GET_GENRES,GET_MOVIES_BY_GENRE, RESET_PAGE } from "../types";
 
 const initialState = {
     currentMovies:[],
     popularMovies: [],
     moviesByGenre: [],
     genres:[],
-    searchedMovieId: null,
+    selectedMovie: null,
     page: 1
 }
 
@@ -26,6 +26,8 @@ const MovieReducer = (state = initialState, action) => {
             return { ...state, moviesByGenre: action.payload } 
         case RESET_PAGE:
             return {...state , page: 1}
+        case GET_MOVIE_BY_ID:
+            return { ...state, selectedMovie: action.payload } 
         default: 
         return { ...state }
     }

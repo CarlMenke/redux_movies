@@ -2,15 +2,6 @@ import client from "./";
 
 const API_KEY = 'api_key=383216bc3470b7b5495792c737a56154'
 
-// export const GetMovie  = async () => {
-//     try{
-//         const res = await client.get(`/movie/${}?${API_KEY}`)
-//         return res.data
-//     } catch (error) {
-//       throw error
-//     }
-// }
-
 // export const GetSimilarMovies = async () => {
 //     try{
 //         const res = await client.get(`/movie/${}/similar?${API_KEY}`)
@@ -41,9 +32,19 @@ export const getGenres = async () => {
 
 export const getMoviesByGenre = async (genre_id,page)  => {
   try{
-    const res = await client.get(`/movie/?${API_KEY}&genre_id=${genre_id}&page=${page}`)
+    const res = await client.get(`/discover/movie/?${API_KEY}&page=${page}&with_genres=${genre_id}`)
+    console.log(res.data)
     return res.data
-} catch (error) {
-  throw error
+  } catch (error) {
+    throw error
+  }
 }
+
+export const getMovieById = async (movie_id) => {
+  try{
+      const res = await client.get(`/movie/${movie_id}?${API_KEY}`)
+      return res.data
+  } catch (error) {
+    throw error
+  }
 }

@@ -57,19 +57,19 @@
   display:flex; 
   flex-flow:column nowrap;
   justify-content: space-between;
-  width:20%;
+  width:33%;
 }
 
 .home-middle{
   display:flex; 
   flex-flow:column nowrap;
   justify-content: space-between;
-  width:60%;
+  width:33%;
 }
 
 .home-right{
   display:flex; 
   flex-flow:column nowrap;
   justify-content: space-between;
-  width:20%;
+  width:33%;
 }

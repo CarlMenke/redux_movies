@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { loadPopularMovies, changePage } from "../store/actions/MovieActions";
+import { loadPopularMovies, changePage,resetPage } from "../store/actions/MovieActions";
 import { useParams } from "react-router-dom";
+import MovieCard from "./MovieCard";
 
 const mapStatetoProps = ({ movieState }) => {
     return { movieState }
@@ -11,6 +12,7 @@ const mapStatetoProps = ({ movieState }) => {
 const mapDispatchToProps = (dispatch) =>{
     return{
         fetchPopularMovies: (page) => dispatch(loadPopularMovies(page)),
+        resetPage: () => dispatch(resetPage()),
         changePage: (flag) => dispatch(changePage(flag))
     }
 }
@@ -18,9 +20,14 @@ const mapDispatchToProps = (dispatch) =>{
 const PopularMovies = (props) => {
 
     console.log('props in movies', props)
+
     useEffect(()=>{
         props.fetchPopularMovies(props.movieState.page)
     },[props.movieState.page])
+
+    useEffect(()=>{
+        props.resetPage()
+    },[])
 
     if(props.movieState.popularMovies.results){
         return (
@@ -28,7 +35,9 @@ const PopularMovies = (props) => {
                 <h1>Popular Movies:</h1>
                 {props.movieState.popularMovies.results.map(( movie, index )=>{
                     return (
-                        <div key = {index}>{movie.title}</div>
+                        <div key = {index} >
+                            <MovieCard movie = {movie}/>
+                        </div>
                     )
                 })}
                 <button onClick = {()=>{

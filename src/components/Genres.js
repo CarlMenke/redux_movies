@@ -20,12 +20,11 @@ const Genres = (props) => {
         props.fetchGenres()
     },[])
 
-    const navigate = useNavigate()
-    console.log('props in genre',props)
+    console.log('props in genres',props)
 
     if(props.movieState.genres.genres)
     return (
-        <div className = 'genre-main'>
+        <div className = 'genres-main'>
             <h1>Genres</h1>
             {props.movieState.genres.genres.map((genre,index)=>{
                 console.log(genre)

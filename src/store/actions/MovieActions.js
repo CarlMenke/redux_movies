@@ -1,5 +1,5 @@
-import { GetMovie, getPopularMovies, GetSimilarMovies, getGenres, getMoviesByGenre } from "../../services/MovieServices";
-import { RESET_PAGE, GET_POPULAR_MOVIES ,CHANGE_PAGE, MOVIES_LOADING_TYPE,GET_GENRES,GET_MOVIES_BY_GENRE } from "../types";
+import { getMovieById, getPopularMovies, GetSimilarMovies, getGenres, getMoviesByGenre } from "../../services/MovieServices";
+import { GET_MOVIE_BY_ID, RESET_PAGE, GET_POPULAR_MOVIES ,CHANGE_PAGE, MOVIES_LOADING_TYPE,GET_GENRES,GET_MOVIES_BY_GENRE } from "../types";
 
 export const loadPopularMovies = (page) =>{
     return async (dispatch) =>{
@@ -62,6 +62,20 @@ export const loadMoviesByGenre = (genre_id,page) => {
             dispatch({
                 type:GET_MOVIES_BY_GENRE,
                 payload:movies
+            })
+        }catch (error){
+            throw error
+        }
+    }
+}
+
+export const loadMovieById = (movie_id) => {
+    return async (dispatch) =>{
+        try{
+            const movie = await getMovieById(movie_id)
+            dispatch({
+                type:GET_MOVIE_BY_ID,
+                payload:movie
             })
         }catch (error){
             throw error
