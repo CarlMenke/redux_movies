@@ -15,8 +15,9 @@ const mapDispatchToProps = (dispatch) =>{
     }
 }
 
-const Movies = (props) => {
+const PopularMovies = (props) => {
 
+    console.log('props in movies', props)
     useEffect(()=>{
         props.fetchPopularMovies(props.movieState.page)
     },[props.movieState.page])
@@ -44,4 +45,4 @@ const Movies = (props) => {
     }else{return(<div>Loading</div>)}
 }
 
-export default connect(mapStatetoProps,mapDispatchToProps)(Movies)
+export default connect(mapStatetoProps,mapDispatchToProps)(PopularMovies)

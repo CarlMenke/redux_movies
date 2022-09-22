@@ -1,16 +1,20 @@
 import './styles/App.css';
 import { Route, Routes } from 'react-router-dom'
-import  Movies  from './components/Movies'
 import Home from './components/Home'
 import Nav from './components/Nav'
+import Genres from './components/Genres'
+import Genre from './components/Genre'
 
-function App() {
+function App(props) {
   return (
-    <Routes>
-      <Route path='/' element = {<Nav/>}/>
-      <Route path='/home' element = {<Home/>}/>
-      <Route path='/movies' element = {<Movies/>}/>
-    </Routes>
+    <div>
+      <Nav />
+      <Routes>
+        <Route exact path='/' element = {<Home />} />
+        <Route path = '/explore' element = {<Genres/>} />
+        <Route path = '/genre/:id' element = {<Genre/>} />
+      </ Routes>
+    </div>
   );
 }
 

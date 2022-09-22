@@ -36,3 +36,40 @@
     transform: rotate(360deg);
   }
 }
+
+.row-nowrap-sb{
+  display:flex;
+  flex-flow:row nowrap;
+  justify-content: space-between;
+}
+.home-main{
+  display:flex;
+  flex-flow:column nowrap;
+  align-items: center;
+}
+.home-bottom{
+  display:flex; 
+  flex-flow:row wrap;
+  justify-content: space-between;
+  width:100%;
+}
+.home-left{
+  display:flex; 
+  flex-flow:column nowrap;
+  justify-content: space-between;
+  width:20%;
+}
+
+.home-middle{
+  display:flex; 
+  flex-flow:column nowrap;
+  justify-content: space-between;
+  width:60%;
+}
+
+.home-right{
+  display:flex; 
+  flex-flow:column nowrap;
+  justify-content: space-between;
+  width:20%;
+}

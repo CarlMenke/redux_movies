@@ -29,3 +29,21 @@ export const getPopularMovies = async (page) => {
     throw error
   }
 }
+
+export const getGenres = async () => {
+  try{
+      const res = await client.get(`/genre/movie/list?${API_KEY}`)
+      return res.data
+  } catch (error) {
+    throw error
+  }
+}
+
+export const getMoviesByGenre = async (genre_id,page)  => {
+  try{
+    const res = await client.get(`/movie/?${API_KEY}&genre_id=${genre_id}&page=${page}`)
+    return res.data
+} catch (error) {
+  throw error
+}
+}

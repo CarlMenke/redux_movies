@@ -8,8 +8,9 @@ const Nav = (props) => {
     console.log(props)
 
     return (
-        <div>
-            <Link to = "/home">Home</Link>
+        <div className = 'row-nowrap-sb'>
+            <Link to = "/">Home</Link>
+            <Link to = "/explore">Explore</Link>
         </div>
     )
 }
